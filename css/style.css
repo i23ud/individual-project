@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #f8f8f8;
+}
+
+.wrapper {
+  width: 500px;
+  padding-top: 25%;
+  margin: 0 auto;
+  
+} 
+
+.wrapper > .playMode {
+  width: 100%;
+}
+.playMode{
+  display: none;
+  cursor: pointer;
+}
+.playMode > button {
+  cursor: pointer;
+  display: inline-block;
+  height: 150px;
+  width: 45%;
+  margin: 10px;
+  border: none;
+  /* border-radius: 5%; */
+  text-decoration: none;
+  font-size: 100px;
+  background-color: white;
+}
+#xPlayer{
+    color : #5c9eed
+}
+#oPlayer{
+    color: #E88347;
+}
+.container {
+  margin-top: 1%;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* background-color: white; */
+    font-size: 50px;
+    
+  }
+  .container > div{
+    cursor: pointer;
+    background: #f8f8f8;
+    width: 33%;
+    height: 150px;
+    margin-bottom: 0.5%;
+    text-align: center;
+    background-color: white;
+}
+
+.green {
+  background-color: green;
+}
