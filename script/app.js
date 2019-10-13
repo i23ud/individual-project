@@ -14,12 +14,13 @@ $(document).ready(function () {
     const boxHandle = function () {
         // $(this).css("background-color", "green");
         const tailSelected = $(this); //replace this with more meaningful var
-
         if (reminder % 2 == 0) {
             tailSelected.text(players[0]);
             tailSelected.addClass("green");
             if (validation("green")) {
                 alert("You have won");
+                // $(".container").css("display", "none");
+                $(".container").fadeOut("slow");
             }
         } else {
             tailSelected.text(players[1]);
