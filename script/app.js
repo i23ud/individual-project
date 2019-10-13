@@ -4,31 +4,60 @@ $(document).ready(function () {
     const $xPlayer = $("#xPlayer");
     const $oPlayer = $("#oPlayer");
     const $boxs = $(".box");
-
+    let turn = 1;
     let userChoices = "";
     let computerChoices = "";
     let players = [$xPlayer, $oPlayer];
     let reminder = 0; //init
 
-    const validation = function () {
-        if (userC) {
-            
-        }
-    }
+
     const boxHandle = function () {
         // $(this).css("background-color", "green");
-        if (reminder % 2 == 0) {
-            $(this).text(players[0]);
-            $(this).addClass(".green");
-        } else {
-            $(this).text(players[1]);
-            $(this).css("background-color", "blue");
-        }
-        console.log($(this))
-        reminder++;
-        $(this).unbind();
-    }
+        const tailSelected = $(this); //replace this with more meaningful var
 
+        if (reminder % 2 == 0) {
+            tailSelected.text(players[0]);
+            tailSelected.addClass("green");
+            if (validation("green")) {
+                alert("You have won");
+            }
+        } else {
+            tailSelected.text(players[1]);
+            tailSelected.addClass("blue")
+            if (validation("blue")) {
+                alert("Computer won")
+            }
+        }
+        reminder++;
+        tailSelected.unbind(); //disable the current box;
+
+    }
+    const validation = function (color) {
+        //row
+        if ($(".t1").hasClass(color) && $(".t2").hasClass(color) && $(".t3").hasClass(color)) {
+            return true;
+        } else if ($(".t4").hasClass(color) && $(".t5").hasClass(color) && $(".t6").hasClass(color)) {
+            return true;
+        } else if ($(".t7").hasClass(color) && $(".t8").hasClass(color) && $(".t9").hasClass(color)) {
+            return true;
+        }
+        //column 
+        else if ($(".t1").hasClass(color) && $(".t4").hasClass(color) && $(".t7").hasClass(color)) {
+            return true;
+        } else if ($(".t2").hasClass(color) && $(".t5").hasClass(color) && $(".t8").hasClass(color)) {
+            return true;
+        } else if ($(".t3").hasClass(color) && $(".t6").hasClass(color) && $(".t9").hasClass(color)) {
+            return true;
+        }
+        //diagnois
+        else if ($(".t1").hasClass(color) && $(".t5").hasClass(color) && $(".t9").hasClass(color)) {
+            return true;
+        } else if ($(".t3").hasClass(color) && $(".t5").hasClass(color) && $(".t7").hasClass(color)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     const handleBtn = function () {
         $(".container").css("display", "flex")
 
