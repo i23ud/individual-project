@@ -4,38 +4,39 @@ $(document).ready(function () {
     const $xPlayer = $("#xPlayer");
     const $oPlayer = $("#oPlayer");
     const $boxs = $(".box");
-    let turn = 1;
-    let userChoices = "";
-    let computerChoices = "";
     let players = [$xPlayer, $oPlayer];
     let reminder = 0; //init
+    const resetBtn =$("#resetBtn");
 
 
+    const reset = function () {
+        location.reload(); //reload a page!!
+    }
     const boxHandle = function () {
-        // $(this).css("background-color", "green");
         const tailSelected = $(this); //replace this with more meaningful var
         if (reminder % 2 == 0) {
             tailSelected.text(players[0]);
             tailSelected.addClass("green");
             if (validation("green")) {
-                alert("You have won");
-                // $(".container").css("display", "none");
-                $(".container").fadeOut("slow");
+                setTimeout(() => {
+                    // $(".container").css("z-index","900");
+                    $(".winningScreen").fadeIn("fast");
+                }, 1000);
             }
         } else {
             tailSelected.text(players[1]);
-            tailSelected.addClass("blue")
+            tailSelected.addClass("blue");
             if (validation("blue")) {
                 alert("Computer won")
             }
         }
         reminder++;
         tailSelected.unbind(); //disable the current box;
-
-    }
+    };
     const validation = function (color) {
         //row
         if ($(".t1").hasClass(color) && $(".t2").hasClass(color) && $(".t3").hasClass(color)) {
+            $(".t1").fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
             return true;
         } else if ($(".t4").hasClass(color) && $(".t5").hasClass(color) && $(".t6").hasClass(color)) {
             return true;
@@ -58,7 +59,7 @@ $(document).ready(function () {
         } else {
             return false;
         }
-    }
+    };
     const handleBtn = function () {
         $(".container").css("display", "flex")
 
@@ -73,9 +74,9 @@ $(document).ready(function () {
         console.log(players)
         // $boxs.click(boxHandle);
         $(".playMode").fadeOut();
-    }
+    };
     players[0].click(handleBtn);
     players[1].click(handleBtn);
-
     $boxs.click(boxHandle);
+    resetBtn.click(reset);
 });
