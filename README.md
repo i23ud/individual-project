@@ -23,7 +23,7 @@ image goes here
 image goes here 
 # Technology involved:
 1. HTML
-⋅⋅* building elements and layout of tic-tac-toe board.
+* building elements and layout of tic-tac-toe board.
 2. CSS:
 ⋅⋅* customise, style and animation to the page .
 3. JavaScript/jQuery: 
