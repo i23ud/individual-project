@@ -34,7 +34,8 @@ $(document).ready(function () {
                     $container.fadeIn("fast").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast");
                     $(".winningScreen h2").text(" Draw");
                     setTimeout(() => {
-                        $(".winningScreen h2").fadeIn("fast");
+                        
+                        $(".winningScreen").fadeIn("fast");
                     }, 500);
                 }
             }
