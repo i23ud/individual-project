@@ -5,21 +5,21 @@ A Tic-Tac-Toe game UI, a simple Javascript web applicationcan at the most have 9
 
 ### Screenshots:
 here is some screenshots
-#### home page
+#### Home page
 image goes here
 
-#### game board
+#### Game board
 image goes here
 
-#### winning/draw screen
+#### Winning/draw screen
 image goes here
 
 ## Responsive web design
 One of the must-have feature that every project should have is a mobile friendly website.
 ### Screenshots:
-#### board
+#### Board
 image goes here
-#### winning / draw screen
+#### Winning / draw screen
 image goes here 
 ## Technology involved:
 1. HTML
@@ -35,7 +35,7 @@ image goes here
 2) sketching the game's layout.
 3) init repo to add init files.
 4) brea down the problem into smaller and smaller tasks to slove a problem in a professional way.
-## problems and solving strategy:
+## Problems and solving strategy:
 1) faceing issue with wining condation , trying to compare two array wining array and player array was so hard to implemented.But i manage to over come this issue by creating winOption function that
 iterate via for loop and compare the content of the array with the value of the ussers and send the outcome to the gameover game function that will show the winner  in allart  and calculate the score
 ## How to play?
