@@ -9,14 +9,27 @@ $(document).ready(function () {
     let playerTurnDiv = $("#playerTurn");
     const resetBtn = $("#resetBtn");
     const $container = $(".container");
+
+    //not used. but I kept it for future purposes
     const reset = function () {
         location.reload(); //reload a page!!
+    }
+    //reset everything and show what's been hidden and vise versa
+    const clearBoard = function () {
+        $boxs.removeClass("blue");
+        $boxs.removeClass("green");
+        $boxs.text("");
+        turn = 0;
+        $(".winningScreen").fadeOut();
+        $container.fadeOut();
+        $(".playMode").fadeIn();
+        $boxs.click(boxHandle);
     }
     const boxHandle = function () {
         const tailSelected = $(this); //replace $(this) with more meaningful var
         //this if block is for checking which player and if game finished or not
         if (turn % 2 == 0) {
-            playerTurnDiv.text(players[1] + " Turn");
+            playerTurnDiv.text(players[1] + " Turn"); //to display whos turn
             tailSelected.text(players[0]);
             tailSelected.addClass("green");
             if (checkWins("green")) {
@@ -24,7 +37,7 @@ $(document).ready(function () {
                 $boxs.unbind();
                 playerTurnDiv.text("");
                 $container.fadeIn("fast").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast");
-                $(".winningScreen h2").text("X player won");
+                $(".winningScreen h2").text(players[0] + " player won");
                 setTimeout(() => {
                     $(".winningScreen").fadeIn("fast");
                 }, 500);
@@ -32,9 +45,9 @@ $(document).ready(function () {
                 if (turn === 8) { //check moves if all btn's been clicked
                     $boxs.unbind();
                     $container.fadeIn("fast").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast");
-                    $(".winningScreen h2").text(" Draw");
+                    $(".winningScreen h2").text("Draw");
                     setTimeout(() => {
-                        
+
                         $(".winningScreen").fadeIn("fast");
                     }, 500);
                 }
@@ -47,7 +60,7 @@ $(document).ready(function () {
                 playerTurnDiv.text("");
                 $boxs.unbind();
                 $container.fadeIn("fast").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast");
-                $(".winningScreen h2").text("O player won");
+                $(".winningScreen h2").text(players[1] + " player won");
                 setTimeout(() => {
                     $(".winningScreen h2").fadeIn("fast");
                 }, 500);
@@ -103,5 +116,5 @@ $(document).ready(function () {
     players[0].click(handleBtn);
     players[1].click(handleBtn);
     $boxs.click(boxHandle);
-    resetBtn.click(reset);
+    resetBtn.click(clearBoard);
 });
