@@ -5,46 +5,54 @@ $(document).ready(function () {
     const $oPlayer = $("#oPlayer");
     const $boxs = $(".box");
     let players = [$xPlayer, $oPlayer];
-    let reminder = 0; //init
+    let turn = 0; //init
+    let playerTurnDiv = $("#playerTurn");
     const resetBtn = $("#resetBtn");
-
+    const $container = $(".container");
     const reset = function () {
         location.reload(); //reload a page!!
     }
     const boxHandle = function () {
         const tailSelected = $(this); //replace $(this) with more meaningful var
-
         //this if block is for checking which player and if game finished or not
-        if (reminder % 2 == 0) {
+        if (turn % 2 == 0) {
+            playerTurnDiv.text(players[1] + " Turn");
             tailSelected.text(players[0]);
             tailSelected.addClass("green");
             if (checkWins("green")) {
                 //blinking 
-                $(".container").fadeIn("fast").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast");
+                $boxs.unbind();
+                playerTurnDiv.text("");
+                $container.fadeIn("fast").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast");
                 $(".winningScreen h2").text("X player won");
                 setTimeout(() => {
                     $(".winningScreen").fadeIn("fast");
-                }, 1500);
+                }, 500);
             } else {
-                if (reminder === 8) { //check moves if all btn's been clicked
-                    $(".container").fadeIn("fast").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast");
+                if (turn === 8) { //check moves if all btn's been clicked
+                    $boxs.unbind();
+                    $container.fadeIn("fast").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast");
                     $(".winningScreen h2").text(" Draw");
                     setTimeout(() => {
                         $(".winningScreen h2").fadeIn("fast");
-                    }, 1500);
+                    }, 500);
                 }
             }
         } else {
             tailSelected.text(players[1]);
+            playerTurnDiv.text(players[0] + " Turn");
             tailSelected.addClass("blue");
             if (checkWins("blue")) {
+                playerTurnDiv.text("");
+                $boxs.unbind();
+                $container.fadeIn("fast").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast");
                 $(".winningScreen h2").text("O player won");
                 setTimeout(() => {
                     $(".winningScreen h2").fadeIn("fast");
                 }, 500);
             }
         }
-        reminder++;
+        turn++;
         tailSelected.unbind(); //disable the current box;
     };
 
@@ -76,14 +84,15 @@ $(document).ready(function () {
         }
     };
     const handleBtn = function () {
-        $(".container").css("display", "flex")
-
+        $container.css("display", "flex");
         if ($(this).text() == "X") {
             user = "X";
             computer = "O";
+            playerTurnDiv.text("X Turn");
         } else {
             user = "O";
             computer = "X";
+            playerTurnDiv.text("O Turn");
         }
         players = [user, computer];
         console.log(players)
