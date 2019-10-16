@@ -21,15 +21,16 @@ One of the must-have feature that every project should have is a mobile friendly
 image goes here
 #### winning / draw screen
 image goes here 
-# Technology involved:
+## Technology involved:
 1. HTML
 * building elements and layout of tic-tac-toe board.
 2. CSS:
-⋅⋅* customise, style and animation to the page .
+* customise, style and animation to the page .
 3. JavaScript/jQuery: 
-⋅⋅* To add functionality and logic and animations.
+* To add functionality and logic and animations.
 4. git
-##  story about your development process
+5. GitHub
+## Story about your development process
 1) Thinking about the idea of the project .
 2) Design the wireframe .
 3) build the HTML file .
@@ -59,15 +60,12 @@ with following elements:
 * Visually display which side won if a player gets three in a row, or show a draw if neither player wins
 * Keep track of multiple game rounds with a win, lose and tie counter
 ## How to play?
-the game start as soon as the page loaded, 1st player will be O's player who make the move by clicking in the one of the table cells,  after that 2nd player take the turn .until on of the player achived the winning condation ,which is
+After player picks a side, the game board pop up and ready to be clicked :). Then, the player will be first player will be able to hit the square by clicking on one of the squares. Next, second player's turn to play and choose any cell that is avalible. If a chosen tail gotten clicked, nothing will change :) players must choose an avalibale square. there is a three ways to finish and win. if all three square of a row or a column or a diagnos selected from  X or O will win. if all squares been clicked then, it's a draw. 
 ## Status:
-Project is:  finished,but it can be improved !
-## Inspiration:
-Add here credits. Project inspired by..., based on...
+the minimum and couple of bonus finished. Howver, it is still on 1st version and will be updated in the future. 
 ## List unsolved problems :
-* Involve Audio in the  game as them for the web page
+* Adding a computer to play with the user.
 ## Further improvements:
 * Allow players to customize their tokens (X, O, name, picture, etc)
+* Allow 2 players to play online with each other.
 * Create an AI opponent for computer to play.
-* make the site fully responsive so that it is playable from a mobile phone
-* Allow 2 players to play online with each other using any means such as WebSockets, Firebase, or other 3rd-party services.
