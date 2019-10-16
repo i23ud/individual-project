@@ -25,6 +25,20 @@ $(document).ready(function () {
         $(".playMode").fadeIn();
         $boxs.click(boxHandle);
     }
+
+    const computerTure = function (user) {
+        for (let i = 0; i < $boxs.length; i++) {
+            let randomNumber = Math.floor((Math.random() * 9) + 1);
+            let element = $boxs[randomNumber];
+            if (!element.hasClass("green")) {
+                console.log("I am in");
+
+                tailSelected.addClass("blue");
+                tailSelected.text(user);
+                break;
+            }
+        }
+    }
     const boxHandle = function () {
         const tailSelected = $(this); //replace $(this) with more meaningful var
         //this if block is for checking which player and if game finished or not
@@ -32,6 +46,7 @@ $(document).ready(function () {
             playerTurnDiv.text(players[1] + " Turn"); //to display whos turn
             tailSelected.text(players[0]);
             tailSelected.addClass("green");
+            tailSelected.addClass('marked');
             if (checkWins("green")) {
                 //blinking 
                 $boxs.unbind();
@@ -47,15 +62,16 @@ $(document).ready(function () {
                     $container.fadeIn("fast").fadeOut("fast").fadeIn("fast").fadeOut("fast").fadeIn("fast");
                     $(".winningScreen h2").text("Draw");
                     setTimeout(() => {
-
                         $(".winningScreen").fadeIn("fast");
                     }, 500);
                 }
             }
         } else {
-            tailSelected.text(players[1]);
+            // tailSelected.text(players[1]);
             playerTurnDiv.text(players[0] + " Turn");
-            tailSelected.addClass("blue");
+            computerTure(players[1]);
+            // tailSelected.addClass("blue");
+
             if (checkWins("blue")) {
                 playerTurnDiv.text("");
                 $boxs.unbind();
