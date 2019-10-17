@@ -36,8 +36,7 @@ image goes here
 3) init repo to add init files.
 4) brea down the problem into smaller and smaller tasks to slove a problem in a professional way.
 ## Problems and solving strategy:
-1) faceing issue with wining condation , trying to compare two array wining array and player array was so hard to implemented.But i manage to over come this issue by creating winOption function that
-iterate via for loop and compare the content of the array with the value of the ussers and send the outcome to the gameover game function that will show the winner  in allart  and calculate the score
+1) I could not add computer to play with the user. I googled the problem, tested couple of functions but unfortionaltily it did not work with me. 
 ## How to play?
 After player picks a side, the game board pop up and ready to be clicked :). Then, the player will be first player will be able to hit the square by clicking on one of the squares. Next, second player's turn to play and choose any cell that is avalible. If a chosen tail gotten clicked, nothing will change :) players must choose an avalibale square. there is a three ways to finish and win. if all three square of a row or a column or a diagnos selected from  X or O will win. if all squares been clicked then, it's a draw. 
 ## Status:
